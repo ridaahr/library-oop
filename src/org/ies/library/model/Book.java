@@ -50,7 +50,6 @@ public class Book {
     }
 
     public boolean hasAuthor(String nif) {
-        boolean hasAuthor;
         for (Author author : authors) {
             if (author.getNif().equals(nif)) {
                 return true;

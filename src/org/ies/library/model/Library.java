@@ -29,12 +29,70 @@ public class Library {
     }
 
     public boolean hasBook(String isbn) {
-        for (Book book : books) {
+        for (Book book: books) {
             if (book.getIsbn().equals(isbn)) {
                 return true;
             }
         }   return false;
     }
+
+//    public boolean hasAuthor(String nif) {
+//        for (Book book: books) {
+//            for (Author author: book.getAuthors()) {
+//                if (author.getNif().equals(nif)){
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+//    }
+
+    public boolean hasAuthor(String nif) {
+        for (Book book: books) {
+            if(book.hasAuthor(nif)) {
+                return true;
+            }
+        }   return false;
+    }
+
+//    public int countBooks(String nif) {
+//        int numBooks = 0;
+//        for (Book book: books) {
+//            for (Author author: book.getAuthors()) {
+//                if (author.getNif().equals(nif)) {
+//                    numBooks ++;
+//                }
+//            }
+//        }   return numBooks;
+//    }
+
+    public int countBooks(String nif) {
+        int numBooks = 0;
+        for (Book book: books) {
+            if(book.hasAuthor(nif)) {
+                numBooks++;
+            }
+        }   return numBooks;
+    }
+
+    public int countYearBooks(int year) {
+        int numYearBooks = 0;
+        for (Book book: books) {
+            if (book.getYear() == (year)) {
+                numYearBooks++;
+            }
+        }   return numYearBooks;
+    }
+
+    public void findBook(String isbn) {
+        for (Book book: books) {
+            if (book.getIsbn().equals(isbn)) {
+                return book;
+            }
+        }   return null;
+    }
+
+
 
     @Override
     public String toString() {
